@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CoverageExample</string>
+    <string name="ip_intro_text">Here will appear your IP</string>
+    <string name="get_ip_btn">get ip</string>
+</resources>

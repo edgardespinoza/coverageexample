@@ -1,0 +1,41 @@
+ext {
+    appName = 'CoverageExample'
+    supportLibVer = '24.1.1'
+    retrofitVersion = '2.0.1'
+}
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:23.1.0'
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile 'org.mockito:mockito-all:2.0.2-beta'
+    testCompile "org.robolectric:robolectric:3.1.2"
+
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.0.4'
+
+    //retrofit libs
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+
+    //dagger
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.google.dagger:dagger:2.0.2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    //android Tests
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestCompile "com.android.support:support-annotations:$supportLibVer"
+    androidTestApt "com.google.dagger:dagger-compiler:2.0.2"
+}
